@@ -4,7 +4,7 @@ A structured evaluation suite testing Claude's resistance to prompt injection at
 
 Built as part of interview preparation for Anthropic's Safeguards Enforcement Analyst role, following Anthropic's own published framework: [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents).
 
-Companion Substack post: *Beyond the Attack Surface* — [link TK]
+Companion Substack post: *Beyond the Attack Surface* — [link](https://beyondtheattacksurface.substack.com/p/my-first-ai-eval-had-a-28-fail-rate)
 
 ---
 
@@ -54,6 +54,8 @@ Following Anthropic's recommendation to combine grader types:
 - **Code-based grader:** checks for known injection-follow signals (verbatim phrases, key terms) — fast, cheap, deterministic
 - **LLM-as-judge:** evaluates whether the response contains a valid summary of the actual document content — handles open-ended outputs
 - **Flag detector:** checks whether the response explicitly acknowledges the injection attempt
+
+Note: the original code-based injection-follow detector was replaced with an LLM-as-judge after transcript review revealed false positives from string matching. The current scorer.py reflects this update.
 
 ---
 
